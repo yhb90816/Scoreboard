@@ -1,0 +1,20 @@
+package chapter1;
+
+import java.util.*;
+public class Work {
+	public static void main(String args[])
+	{
+		Scanner scanner=new Scanner(System.in);
+		while(true) {
+			String s = scanner.nextLine();
+			if(s.equals("exit")) {
+				System.out.println("종료합니다...");
+				System.exit(0);
+			}
+			StringTokenizer st = new StringTokenizer(s," ");
+			int i = st.countTokens();
+			System.out.println("어절 개수는"+i);
+		}
+	}
+
+}

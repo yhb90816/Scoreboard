@@ -1,0 +1,30 @@
+package chapter1;
+import java.util.Scanner;
+public class ArrayLength {
+	public static void main(String[] args)
+	{
+		Scanner scanner = new Scanner(System.in);
+		System.out.println("5개의 정수를 입력하세요.");
+		int intArray[]=new int[5];
+		int max=0;
+		int tmp=0;
+		for(int i=0; i<intArray.length;i++)
+			intArray[i]=scanner.nextInt();
+		
+		for(int i=0;i<intArray.length;i++)
+		{
+			for(int k=0;k<intArray.length-i;k++)
+			{
+				if(intArray[i]>intArray[i+k])
+				{
+					tmp=intArray[i];
+					intArray[i]=intArray[i+k];
+					intArray[i+k]=tmp;
+				}
+			}
+		}
+		for(int i=0;i<intArray.length;i++)
+			System.out.printf("%d ",intArray[i]);
+		scanner.close();
+	}
+}

@@ -1,0 +1,41 @@
+package ch10Examples;
+
+import java.awt.*;
+import javax.swing.*;
+import java.awt.event.*;
+import javax.swing.event.*;
+
+public class Example10_6_2 extends JFrame {
+	public Example10_6_2() {
+		Container c = getContentPane();
+		setTitle("JTextField ¿¹Á¦");
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		c.setLayout(new FlowLayout());
+
+		JTextField tf = new JTextField(10);
+
+		tf.addActionListener(new ActionListener() {
+		    public void actionPerformed (ActionEvent e) {
+		        JTextField source = (JTextField)e.getSource();
+		        System.out.println(source.getText());
+		        source.setText("");
+		    }
+		});
+
+		tf.addActionListener(new ActionListener() {
+		            public void actionPerformed (ActionEvent e) {
+		                JTextField source = (JTextField)e.getSource();
+		                System.out.println(source.getText());
+		                source.setText("");
+		            }
+		        });
+		c.add(tf);// Components are here.
+
+		setSize(300, 200);
+		setVisible(true);
+	}
+
+	public static void main(String[] args) {
+		Example10_6_2 example = new Example10_6_2();
+	}
+}

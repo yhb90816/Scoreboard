@@ -1,0 +1,33 @@
+package chapter1;
+
+import java.util.*;
+
+public class Work {
+	public static void main(String args[]) {
+		Scanner scanner = new Scanner(System.in);
+		String pp[]= {"가위","바위","보"};
+		while(true) {
+			System.out.println("가위(1), 바위(2), 보(3), 끝내기(4)>>");
+			int n = scanner.nextInt()-1;
+			if(n==3) {
+				System.out.println("게임을 종료합니다...");
+				System.exit(0);
+				break;
+			}
+			int k = (int)(Math.random()*3);
+			System.out.println("사용자"+pp[n]+":"+"컴퓨터"+pp[k]);
+			if(n==0&&k==1)
+				System.out.println("사용자가 졌습니다.");
+			if(n==1&&k==2)
+				System.out.println("사용자가 졌습니다.");
+			if(n==2&&k==0)
+				System.out.println("사용자가 졌습니다.");
+			if(n==k)
+				System.out.println("비겼습니다.");
+			else
+				System.out.println("사용자가 이겼습니다.");
+		}
+		scanner.close();
+	}
+
+}

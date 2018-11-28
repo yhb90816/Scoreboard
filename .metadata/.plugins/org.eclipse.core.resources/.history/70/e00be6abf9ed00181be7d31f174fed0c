@@ -1,0 +1,46 @@
+package ch10Examples;
+
+import java.awt.*;
+import javax.swing.*;
+import java.awt.event.*;
+import javax.swing.event.*;
+
+
+public class Example10_8_2 extends JFrame{
+	public static void main(String[] args) {
+		new Example10_8_2();
+	}
+	public Example10_8_2() {
+		setTitle("리스트 예제");
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		Container c = getContentPane();
+		c.setLayout(new FlowLayout());
+		
+		String[] animals = {"개", "고양이", "비둘기"};
+		ImageIcon[] images = {new ImageIcon("images/dog.png"),
+				new ImageIcon("images/cat.png"),
+				new ImageIcon("images/pigeon.png")};
+		
+		JList<String> strList = new JList<>(animals); //문자열 리스트
+		JLabel animal = new JLabel(images[0]); //이미지를 출력할 레이블 생성
+		
+		c.add(strList);
+		c.add(animal);
+		
+		//리스트의 아이템이 선택되면 그 아이템의 이미지를 출력
+		strList.addListSelectionListener(new ListSelectionListener() {
+			@Override
+			public void valueChanged(ListSelectionEvent e) {
+				
+				//콤보박스의 선택된 아이템의 인덱스 번호 알아내기
+				int index = ((JList<String>) e.getSource()).getSelectedIndex();
+				
+				//인덱스의 이미지를 이미지 레이블에 출력
+				animal.setIcon(images[index]);
+			}
+		});										//Components are here.
+		
+		setSize(300, 300);
+		setVisible(true);
+	}
+}

@@ -1,0 +1,45 @@
+package ch10Examples;
+import java.util.*;
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
+
+public class Example10_9_2 extends JFrame{
+	public static void main(String[] args) {
+		new Example10_9_2();
+	}
+	public Example10_9_2() {
+		setTitle("콤보박스 예제");
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		Container c = getContentPane();
+		c.setLayout(new FlowLayout());
+		
+		String[] animals = {"개", "고양이", "비둘기"};
+		ImageIcon[] images = {new ImageIcon("images/dog.png"),
+				new ImageIcon("images/cat.png"),
+				new ImageIcon("images/pigeon.png")};
+		
+		JComboBox<String> comboBox = new JComboBox<>(animals); //콤보박스 생성
+		JLabel imgLabel = new JLabel(images[0]); //이미지를 출력할 레이블 생성
+		
+		c.add(comboBox);
+		c.add(imgLabel);
+		
+		//콤보박스의 아이템이 선택되면 그 아이템의 이미지를 출력
+		comboBox.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				
+				//콤보박스의 선택된 아이템의 인덱스 번호 알아내기
+				int index = ((JComboBox<String>) e.getSource()).getSelectedIndex();
+				
+				//인덱스의 이미지를 이미지 레이블에 출력
+				imgLabel.setIcon(images[index]);
+			}
+		});
+		
+		setSize(300, 300);
+		setVisible(true);
+	}
+}
+

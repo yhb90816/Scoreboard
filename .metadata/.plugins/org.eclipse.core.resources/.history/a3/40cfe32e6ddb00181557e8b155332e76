@@ -1,0 +1,22 @@
+package chapter1;
+
+import java.util.*;
+public class Work {
+	public static void main(String args[])
+	{
+		while(true) {
+			Scanner scanner=new Scanner(System.in);
+			StringTokenizer st=new StringTokenizer(scanner.nextLine()," ");
+			if(st.equals("exit")) {
+				System.out.println("exit");
+				System.exit(0);
+			}
+			int i=0;
+			while(st.hasMoreTokens()) {
+				i++;
+			}
+			System.out.println("어절 개수는"+i);
+		}
+	}
+
+}

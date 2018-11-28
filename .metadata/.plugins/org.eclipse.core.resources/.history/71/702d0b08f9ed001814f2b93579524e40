@@ -1,0 +1,20 @@
+ackage chapter1;
+
+
+import java.awt.*;
+import javax.swing.*;
+public class MyFrame extends JFrame {
+   MyFrame() {
+       Container contentPane = getContentPane();  // 컨텐트팬에 대한 레퍼런스 얻기
+       contentPane.setLayout(null);  // 컨텐트팬의 배치관리자 제거
+       JButton b = new JButton("Hello");
+       b.setLocation(30,40); // b의 위치를 30, 40으로 설정
+       b.setSize(100,100);  // b의 크기를 100x100으로 설정
+       contentPane.add(b);  // 컨텐트팬에 b 삽입
+       setSize(300, 300);
+       setVisible(true);
+   }
+   public static void main(String[] args) {
+       new MyFrame();
+   }
+}

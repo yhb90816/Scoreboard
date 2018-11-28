@@ -1,0 +1,40 @@
+package chapter1;
+
+import java.util.Scanner;
+public class Hello {
+	public static void main(String[]args)
+	{
+		Scanner scanner =new Scanner(System.in);
+		
+		System.out.println("돈의 액수를 입력하세요>>");
+		int money=scanner.nextInt();
+		
+		int num;
+		num=money/50000;
+		System.out.print("오만원"+num+"개,");
+		money=money%50000;
+		
+		num=money/10000;
+		System.out.print("만원"+num+"개,");
+		money=money%10000;
+		
+		num=money/1000;
+		System.out.print("천원"+num+"개,");
+		money=money%1000;
+		
+		num=money/500;
+		System.out.print("오백원"+num+"개,");
+		money=money%500;
+		
+		num=money/100;
+		System.out.print("백원"+num+"개,");
+		money=money%100;
+		
+		num=money/10;
+		System.out.print("십원"+num+"개,");
+		money=money%10;
+		
+		num=money/1;
+		System.out.print("일원"+num+"개");
+	}
+}

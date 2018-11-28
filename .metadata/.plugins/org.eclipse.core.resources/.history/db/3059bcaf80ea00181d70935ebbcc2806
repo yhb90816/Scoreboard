@@ -1,0 +1,27 @@
+package chapter1;
+
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+
+public class Ex extends JFrame {
+	public Ex() {
+		setTitle("키 누르기 예제");
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		Container c = getContentPane();
+		c.addMouseListener(new MyMouseListener());
+		
+		setSize(400,300);
+		setVisible(true);
+	}
+	class MyMouseListener extends MouseAdapter{
+		public void mouseClicked(MouseEvent e) {
+			int r=(int)(Math.random());
+			int g=(int)(Math.random());
+			int b=(int)(Math.random());
+			JPanel p =(JPanel)e.getSource();
+			p.setBackground(new Color(r,g,b));
+		}
+	}
+
+}

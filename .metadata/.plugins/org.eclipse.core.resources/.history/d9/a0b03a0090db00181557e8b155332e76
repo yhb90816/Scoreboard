@@ -1,0 +1,19 @@
+package chapter1;
+
+import java.util.*;
+public class Work {
+	public static void main(String args[])
+	{
+		Scanner scanner=new Scanner(System.in);
+		String a = scanner.nextLine();
+		StringTokenizer st = new StringTokenizer(a,"+");
+		int sum=0;
+		while(st.hasMoreTokens()) {
+			String number = st.nextToken();
+			String b = number.trim();
+			int n = Integer.parseInt(b);
+			sum+=n;
+		}
+		System.out.println("합은"+sum);
+	}
+}

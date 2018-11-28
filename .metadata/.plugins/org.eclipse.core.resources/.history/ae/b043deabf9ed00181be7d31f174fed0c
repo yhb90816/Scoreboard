@@ -1,0 +1,39 @@
+package ch10Examples;
+import java.awt.*;
+import java.awt.event.*;
+
+import javax.swing.*;
+
+public class Example10_7_2 extends JFrame{
+	public static void main(String[] args) {
+		new Example10_7_2();
+	}
+	public Example10_7_2() {		
+		setTitle("텍스트 영역 예제");
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		Container c = getContentPane();
+		c.setLayout(new FlowLayout());
+		
+		JTextField inputText = new JTextField(20); //입력창 생성
+		JTextArea outputText = new JTextArea(7, 20); //출력창 생성
+		
+		c.add(new JLabel("이름을 적고 Enter를 눌러주세요."));
+		c.add(inputText);
+		c.add(new JScrollPane(outputText)); //JScrollPane 부착으로 스크롤 가능
+		
+		//Enter 키 입력 시 액션 리스너 작동
+		inputText.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				JTextField t = (JTextField) e.getSource();
+				//출력창 텍스트에 입력창 텍스트 추가
+				outputText.append(t.getText() + "\n");
+				//입력창 텍스트 초기화
+				t.setText("");
+			}
+		});
+		
+		setSize(300, 300);
+		setVisible(true);
+	}
+}

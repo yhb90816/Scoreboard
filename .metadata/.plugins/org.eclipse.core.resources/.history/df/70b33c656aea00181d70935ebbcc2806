@@ -1,0 +1,32 @@
+package chapter1;
+
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+public class Ex extends JFrame {
+	public Ex() {
+		setTitle("키 누르기 예제");
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		Container c = getContentPane();
+		c.setLayout(new GridLayout(4,3));
+		for(int i=0;i<12;i++) {
+			String text = Integer.toString(i);
+			JLabel l = new JLabel(text);
+			c.add(l);
+		}
+		
+		c.addMouseListener(new MyMouseListener());
+		
+		setSize(400,300);
+		setVisible(true);
+		
+		c.setFocusable(true);
+		c.requestFocus();
+	}
+	class MyMouseListener extends MouseAdapter{
+		
+	}
+	public static void main(String args[]) {
+		new Ex();
+	}
+}

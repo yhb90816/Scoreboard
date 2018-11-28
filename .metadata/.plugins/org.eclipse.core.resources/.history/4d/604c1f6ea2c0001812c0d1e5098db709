@@ -1,0 +1,37 @@
+package chapter1;
+
+import java.util.Scanner;
+
+public class Coffee {
+	public static void main(String[]args)
+	{
+		Scanner scanner =new Scanner(System.in);
+		String coffee;
+		int n;
+		System.out.println("커피 주문하세요>>");
+		coffee=scanner.next();
+		n= scanner.nextInt();
+		if(n<10) {
+		switch(coffee) {
+		case "에스프레소": System.out.printf("%d원입니다.",n*2000);break;
+		
+		case"아메리카노":System.out.printf("%d원입니다.",n*2500);break;
+		
+		case"카푸치노":System.out.printf("%d원입니다.",n*3000);break;
+		
+		case"카페라떼":System.out.printf("%d원입니다.",n*3500);break;
+		}
+		}
+		else if(n>=10) {
+			switch(coffee) {
+			case "에스프레소": System.out.printf("%d원입니다.",n*2000*0.95);break;
+			
+			case"아메리카노":System.out.printf("%d원입니다.",n*2500*0.95);break;
+			
+			case"카푸치노":System.out.printf("%d원입니다.",n*3000*0.95);break;
+			
+			case"카페라떼":System.out.printf("%d원입니다.",n*3500*0.95);break;
+			}
+		}
+		}
+}

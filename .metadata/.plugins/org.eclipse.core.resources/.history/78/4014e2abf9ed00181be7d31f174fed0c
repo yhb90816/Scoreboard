@@ -1,0 +1,38 @@
+package ch10Examples;
+
+import java.awt.*;
+import javax.swing.*;
+import java.awt.event.*;
+import javax.swing.event.*;
+
+
+public class Example10_8_1 extends JFrame{
+	public static void main(String[] args) {
+		new Example10_8_1();
+	}
+	public Example10_8_1() {
+		setTitle("리스트 예제");
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		Container c = getContentPane();
+		c.setLayout(new FlowLayout());
+		
+		String[] animals = {"개", "고양이", "사자", "호랑이",
+				"원숭이", "기린", "말", "돌고래", "비둘기"};
+		ImageIcon[] images = {new ImageIcon("images/home.png"),
+				new ImageIcon("images/key.png"),
+				new ImageIcon("images/magnifier.png"),
+				new ImageIcon("images/wifi.png")};
+		
+		JList<String> strList = new JList<>(animals); //문자열 리스트
+		JList<ImageIcon> imageList = new JList<>(); //이미지 리스트
+		imageList.setListData(images); //setListData를 이용해 아이템 추가
+		JList<String> scrollList = new JList<>(animals); //스크롤 가능한 문자열 리스트
+		
+		c.add(strList);
+		c.add(imageList);
+		c.add(new JScrollPane(scrollList)); //JScrollPane에 부착으로 스크롤 가능
+		//Components are here.
+		setSize(500, 500);
+		setVisible(true);
+	}
+}

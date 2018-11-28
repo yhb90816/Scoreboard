@@ -1,0 +1,39 @@
+package chapter1;
+
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+public class Ex extends JFrame {
+	private JLabel l = new JLabel("Love Java");
+	public Ex() {
+		setTitle("키 누르기 예제");
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		l.setFont(new Font("Arial",Font.PLAIN,10));
+		Container c = getContentPane();
+		c.setLayout(new FlowLayout());
+		c.add(l);
+		c.addKeyListener(new MyKeyListener());
+		
+		setSize(400,300);
+		setVisible(true);
+		
+		c.setFocusable(true);
+		c.requestFocus();
+	}
+	class MyKeyListener extends KeyAdapter{
+		public void keyPressed(KeyEvent e) {
+			if(e.getKeyChar() == '+') {
+				int size = l.getFont().getSize();
+				l.setFont(new Font("Arial",Font.PLAIN,size+5));
+			}
+			else if(e.getKeyChar()=='-') {
+				int size = l.getFont().getSize();
+				l.setFont(new Font("Arial",Font.PLAIN,size-5));
+			}
+		}
+	}
+	public static void main(String args[]) {
+		new Ex();
+	}
+}
+

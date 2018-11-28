@@ -1,0 +1,27 @@
+package ch10Examples;
+
+import java.awt.*;
+import javax.swing.*;
+import javax.swing.event.*;
+
+public class Example10_7_1 extends JFrame{
+	public static void main(String[] args) {
+		new Example10_7_1();
+	}
+	public Example10_7_1() {		
+		setTitle(""
+				+ "텍스트 영역 예제");
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		Container c = getContentPane();
+		c.setLayout(new FlowLayout());
+		
+		JTextArea textArea = new JTextArea("입력해주세요", 7, 20); //텍스트 영역 생성
+		c.add(textArea);
+		
+		JTextArea scrollArea = new JTextArea("스크롤 가능", 7, 20); //스크롤 가능한 텍스트 영역 생성
+		c.add(new JScrollPane(scrollArea)); // JScrollPane에 부착으로 스크롤 가능
+		
+		setSize(300, 300);
+		setVisible(true);
+	}
+}

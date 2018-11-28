@@ -1,0 +1,37 @@
+package chapter1;
+
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+
+public class MouseSwingTest extends JFrame {
+
+	JPanel contentPane = new JPanel();
+	JLabel la;
+	
+	MouseSwingTest(){
+		setTitle("마우스이벤트와 리스너");
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
+		setContentPane(contentPane);
+		
+		contentPane.addMouseListener(new MyMouseListener());
+		contentPane.addMouseMotionListener(new MyMouseListener());
+		la = new JLabel("Touch Me!!");
+		contentPane.add(la);
+		setSize(300,200);
+		setVisible(true);
+	}
+	class MyMouseListener extends MouseAdapter{
+		public void mouseClicked(MouseEvent e) {
+			int r = (int)(Math.random()*256);
+			int g =(int)(Math.random()*256);
+			int b=(int)(Math.random()*256);
+			JPanel p = (JPanel)e.getSource();
+			p.setBackground(new Color(r,g,b));
+		}
+	}
+	public static void main(String args[]) {
+		new MouseSwingTest();
+	}
+}
